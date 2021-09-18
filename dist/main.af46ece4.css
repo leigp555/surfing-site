@@ -22,7 +22,7 @@ a {
   width: 314px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 190px;
+  margin-top: 50px;
   margin-bottom: 20px;
 }
 body {
@@ -168,7 +168,11 @@ span {
   .text {
     width: 400px;
   }
+  .logo{
+    margin-top: 190px;
+  }
 }
+
 @media (max-width: 400px) {
   .logo {
     margin-top: 50px;
