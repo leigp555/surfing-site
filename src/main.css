@@ -22,7 +22,7 @@ a {
   width: 314px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 body {
@@ -175,7 +175,7 @@ span {
 
 @media (max-width: 400px) {
   .logo {
-    margin-top: 50px;
+   
     width: 210px;
   }
   .nav-head {
