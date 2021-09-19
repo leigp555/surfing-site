@@ -13,7 +13,6 @@ let hashMap = yyObject || [
   { url: "https://bilibili.com" },
   { url: "https://baidu.com" },
 ];
-
 const render = () => {
   $(".main").find("li:not(.last)").remove();
   hashMap.forEach((node, index) => {
@@ -42,7 +41,6 @@ const render = () => {
       hashMap.splice(index, 1);
       render();
     });
-
     let img = document.getElementById(connection);
     img.onerror = function () {
       onerror = null;
@@ -53,11 +51,10 @@ const render = () => {
   });
 };
 render();
-
 $(".icon-a").on("click", () => {
   let hh = window.prompt("请输入要收藏的网站网址");
   function ff(url) {
-    if (url.indexOf("http") !== -1) {
+    if (url.indexOf("http"||"https") === -1) {
       return "https://" + url;
     } else {
       return url;
@@ -71,9 +68,7 @@ window.onbeforeunload = () => {
   const string = JSON.stringify(hashMap);
   localStorage.setItem("xx", string);
 };
-
 let $big = $(".background-image");
 if (document.body.clientWidth > 500) {
-  console.log(document.body.clientWidth);
   $big.attr("src", "/x.1d003868.jpg");
 }
