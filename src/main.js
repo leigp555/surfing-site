@@ -1,11 +1,10 @@
-
 let $lastList = $(".main").find(".last");
 simplify = function (x) {
   return x
     .replace("http://", "")
     .replace("https://", "")
     .replace("www.", "")
-    .replace("//.*", "");
+    .replace(/\/.*/, "");
 };
 const yy = localStorage.getItem("xx");
 const yyObject = JSON.parse(yy);
@@ -17,7 +16,7 @@ let hashMap = yyObject || [
 
 const render = () => {
   $(".main").find("li:not(.last)").remove();
-  hashMap.forEach((node,index) => {
+  hashMap.forEach((node, index) => {
     let url = node.url;
     let link = simplify(url);
     let connection = link.replace(".", "");
@@ -35,14 +34,14 @@ const render = () => {
         <span>${link}</span>
       </div>
   </li>`).insertBefore($lastList);
-  $li.on('click',()=>{
-   window.open(url)
-  })
-  $li.on('click','.close',(e)=>{
-    e.stopPropagation()
-    hashMap.splice(index,1)
-    render()
-  })
+    $li.on("click", () => {
+      window.open(url);
+    });
+    $li.on("click", ".close", (e) => {
+      e.stopPropagation();
+      hashMap.splice(index, 1);
+      render();
+    });
 
     let img = document.getElementById(connection);
     img.onerror = function () {
@@ -56,21 +55,25 @@ const render = () => {
 render();
 
 $(".icon-a").on("click", () => {
-  let url = window.prompt("请输入要收藏的网站网址");
-
-  if (url.indexOf("http") !== 0) {
-    url = "https://" + url;
-    hashMap.push({ url: url });
-    render();
+  let hh = window.prompt("请输入要收藏的网站网址");
+  function ff(url) {
+    if (url.indexOf("http") !== -1) {
+      return "https://" + url;
+    } else {
+      return url;
+    }
   }
+  let url = ff(hh);
+  hashMap.push({ url: url });
+  render();
 });
 window.onbeforeunload = () => {
   const string = JSON.stringify(hashMap);
   localStorage.setItem("xx", string);
 };
 
-let $big=$('.background-image')
-if(document.body.clientWidth >500){
-  console.log(document.body.clientWidth)
-    $big.attr('src',"/x.1d003868.jpg")
+let $big = $(".background-image");
+if (document.body.clientWidth > 500) {
+  console.log(document.body.clientWidth);
+  $big.attr("src", "/x.1d003868.jpg");
 }
