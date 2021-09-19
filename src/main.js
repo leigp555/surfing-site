@@ -12,6 +12,7 @@ let hashMap = yyObject || [
   { url: "https://xiedaimala.com" },
   { url: "https://bilibili.com" },
   { url: "https://baidu.com" },
+  { url: "https://qq.com" },
 ];
 const render = () => {
   $(".main").find("li:not(.last)").remove();
@@ -45,7 +46,7 @@ const render = () => {
     img.onerror = function () {
       onerror = null;
       img.innerHTML = `${link[0]}`;
-      img.src = "https://xiedaimala.com/favicon.ico";
+      img.src = "/save.ab2638ae.png";
       console.clear();
     };
   });
